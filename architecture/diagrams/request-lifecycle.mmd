@@ -1,0 +1,17 @@
+sequenceDiagram
+    participant C as Client
+    participant A as API Gateway
+    participant L as Lambda
+    participant B as Bedrock
+    participant S as S3
+    participant W as CloudWatch
+
+    C->>A: POST /code-generation
+    A->>L: Invoke function
+    L->>W: Execution logs
+    L->>B: Invoke model
+    B-->>L: Generated code
+    L->>S: PutObject
+    S-->>L: Object stored
+    L-->>A: HTTP response
+    A-->>C: 200 OK

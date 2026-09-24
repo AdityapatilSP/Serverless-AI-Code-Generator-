@@ -1,0 +1,8 @@
+flowchart LR
+    Client["Client"] --> API["API Gateway"]
+    API --> Lambda["Lambda"]
+    Lambda --> Bedrock["Amazon Bedrock"]
+    Bedrock --> Lambda
+    Lambda --> S3["Amazon S3"]
+    Lambda --> CW["CloudWatch"]
+    Lambda -.-> Layer["Lambda Layer"]

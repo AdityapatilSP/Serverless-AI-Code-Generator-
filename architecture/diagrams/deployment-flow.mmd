@@ -1,0 +1,8 @@
+flowchart TD
+    Code["Python Lambda source"] --> Layer["Package dependencies"]
+    Layer --> Deploy["Deploy Lambda + Layer"]
+    Deploy --> IAM["IAM permissions"]
+    IAM --> API["API Gateway integration"]
+    API --> Test["Postman test"]
+    Test --> Logs["CloudWatch"]
+    Test --> S3["S3 artifact"]
